@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flask Application Design</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<h1>Flask Application Design</h1>
+<div class="container">
+<div class="dropdown">
+<label for="file_name">Select a JSON file:</label>
+<select name="file_name" id="file_name">
+<option value="file1.json">file1.json</option>
+<option value="file2.json">file2.json</option>
+<option value="file3.json">file3.json</option>
+</select>
+</div>
+<button type="submit" onclick="submitForm()">Generate CSV</button>
+</div>
+<script>
+function submitForm() {
+var file_name = document.getElementById("file_name").value;
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/dropdown", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send("file_name=" + file_name);
+}
+</script>
+</body>
+</html>
+
